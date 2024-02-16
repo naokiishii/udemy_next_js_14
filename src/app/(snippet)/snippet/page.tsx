@@ -1,3 +1,9 @@
-export default function SnippetPage() {
-  return <div className="">test</div>;
+import { db } from "@/db";
+
+export default async function SnippetPage() {
+  const snippets = await db.snippet.findMany();
+  const renderSnippets = snippets.map((snippet) => {
+    return <div key={snippet.id}>{snippet.title}</div>;
+  });
+  return <div className="">{renderSnippets}</div>;
 }

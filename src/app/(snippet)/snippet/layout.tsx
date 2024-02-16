@@ -15,6 +15,10 @@ export default function SnippetLayout({
   children: React.ReactNode;
 }>) {
   return (
+    <html lang="en">
+      <body className={inter.className}>
         <div className="container mx-auto px-12">{children}</div>
+      </body>
+    </html>
   );
 }
