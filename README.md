@@ -45,3 +45,5 @@ npx prisma migrate dev
 npx prisma studio
 
 ```
+
+npm install @monaco-editor/react
