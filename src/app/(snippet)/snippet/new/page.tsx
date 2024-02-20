@@ -49,6 +49,7 @@ export default function SnippetCreatePage() {
         <button type="submit" className="rounded p-2 bg-blue-200">
           Create
         </button>
+        <p aria-live="assertive" className="sr-only" role="error">error</p>
       </div>
     </form>
   );

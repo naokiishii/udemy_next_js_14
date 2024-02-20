@@ -3,6 +3,7 @@ import { notFound, redirect } from "next/navigation";
 import { db } from "@/db";
 import { Suspense } from "react";
 import SnippetShowLoadingPage from "./loading";
+import * as actions from "@/actions";
 
 interface SnippetShowPageProps {
   params: {
@@ -22,6 +23,9 @@ export default async function SnippetShowPage(props: SnippetShowPageProps) {
     notFound();
     //redirect('not-found')
   }
+
+  const deleteSnippetAction = actions.deleteSnippet.bind(null, snippet.id)
+
   return (
     <Suspense fallback={<SnippetShowLoadingPage />}>
       <div>
@@ -34,7 +38,9 @@ export default async function SnippetShowPage(props: SnippetShowPageProps) {
             >
               Edit
             </Link>
-            <button className="p-2 border rounded">Delete</button>
+            <form action={deleteSnippetAction}>
+              <button className="p-2 border rounded">Delete</button>
+            </form>
           </div>
         </div>
         <pre className="p-3 border rounded bg-gray-200 border-gray-200">
