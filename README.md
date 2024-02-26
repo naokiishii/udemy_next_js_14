@@ -47,3 +47,7 @@ npx prisma studio
 ```
 
 npm install @monaco-editor/react
+
+### Production Mode
+npm run build
+npm run start

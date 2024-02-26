@@ -24,7 +24,7 @@ export default async function SnippetShowPage(props: SnippetShowPageProps) {
     //redirect('not-found')
   }
 
-  const deleteSnippetAction = actions.deleteSnippet.bind(null, snippet.id)
+  const deleteSnippetAction = actions.deleteSnippet.bind(null, snippet.id);
 
   return (
     <Suspense fallback={<SnippetShowLoadingPage />}>
@@ -49,4 +49,13 @@ export default async function SnippetShowPage(props: SnippetShowPageProps) {
       </div>
     </Suspense>
   );
+}
+
+export async function generateStaticParams() {
+  const snippets = await db.snippet.findMany();
+  return snippets.map((snippet) => {
+    return {
+      id: snippet.id.toString(),
+    };
+  });
 }
