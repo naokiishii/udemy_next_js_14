@@ -1,10 +1,10 @@
-"use client";
-import { useFormState } from "react-dom";
-import * as actions from "@/actions";
+'use client';
+import { useFormState } from 'react-dom';
+import * as actions from '@/actions';
 
 export default function SnippetCreatePage() {
   const [formState, action] = useFormState(actions.createSnippet, {
-    message: "",
+    message: '',
   });
 
   return (

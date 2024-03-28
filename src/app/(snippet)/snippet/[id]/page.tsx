@@ -1,9 +1,9 @@
-import Link from "next/link";
-import { notFound, redirect } from "next/navigation";
-import { db } from "@/db";
-import { Suspense } from "react";
-import SnippetShowLoadingPage from "./loading";
-import * as actions from "@/actions";
+import Link from 'next/link';
+import { notFound, redirect } from 'next/navigation';
+import { db } from '@/db';
+import { Suspense } from 'react';
+import SnippetShowLoadingPage from './loading';
+import * as actions from '@/actions';
 
 interface SnippetShowPageProps {
   params: {
@@ -19,7 +19,7 @@ export default async function SnippetShowPage(props: SnippetShowPageProps) {
 
   await new Promise((r) => setTimeout(r, 2000));
   if (!snippet) {
-    console.log("Not Found");
+    console.log('Not Found');
     notFound();
     //redirect('not-found')
   }

@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { useFormState } from "react-dom";
+import { useFormState } from 'react-dom';
 import {
   Input,
   Button,
@@ -8,9 +8,9 @@ import {
   Popover,
   PopoverTrigger,
   PopoverContent,
-} from "@nextui-org/react";
-import * as actions from "@/actions";
-import FormButton from "./../../components/common/form-button";
+} from '@nextui-org/react';
+import * as actions from '@/actions';
+import FormButton from './../../components/common/form-button';
 
 interface PostCreateFormProps {
   slug: string;
@@ -19,7 +19,7 @@ interface PostCreateFormProps {
 export default function PostCreateForm({ slug }: PostCreateFormProps) {
   const [formState, action] = useFormState(
     actions.createPost.bind(null, slug),
-    { errors: {} }
+    { errors: {} },
   );
   return (
     <Popover placement="left">
@@ -32,7 +32,7 @@ export default function PostCreateForm({ slug }: PostCreateFormProps) {
             <h3 className="text-lg">Create a Post</h3>
             <Input
               isInvalid={!!formState.errors.title}
-              errorMessage={formState.errors.title?.join(", ")}
+              errorMessage={formState.errors.title?.join(', ')}
               name="title"
               label="Title"
               labelPlacement="outside"
@@ -40,7 +40,7 @@ export default function PostCreateForm({ slug }: PostCreateFormProps) {
             />
             <Textarea
               isInvalid={!!formState.errors.content}
-              errorMessage={formState.errors.content?.join(", ")}
+              errorMessage={formState.errors.content?.join(', ')}
               name="content"
               label="Content"
               labelPlacement="outside"
@@ -48,7 +48,7 @@ export default function PostCreateForm({ slug }: PostCreateFormProps) {
             />
             {formState.errors._form ? (
               <div className="rounded p-2 bg-red-200 border border-red-400">
-                {formState.errors._form.join(", ")}
+                {formState.errors._form.join(', ')}
               </div>
             ) : null}
             <FormButton>Create Post</FormButton>

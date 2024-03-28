@@ -11,6 +11,6 @@ const paths = {
   postShowPath(topicSlug: string, postId: string) {
     return `/auth/topics/${topicSlug}/posts/${postId}`;
   },
-}
+};
 
 export default paths;

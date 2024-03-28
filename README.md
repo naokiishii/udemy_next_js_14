@@ -36,10 +36,11 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
 ## Memo
+
 ```
 # install Next.JS
 npx create-next-app@latest
-npm install prisma  
+npm install prisma
 npx prisma init --datasource-provider sqlite
 npx prisma migrate dev
 npx prisma studio
@@ -49,9 +50,11 @@ npx prisma studio
 npm install @monaco-editor/react
 
 ### Production Mode
+
 npm run build
 npm run start
 
 ### Additional Libraries
+
 npm install @nextui-org/react framer-motion
 npm install --save-exact @auth/core@0.18.1 @auth/prisma-adapter@1.0.6 next-auth@5.0.0-beta.3

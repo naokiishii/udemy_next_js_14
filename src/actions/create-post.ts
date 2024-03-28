@@ -1,12 +1,12 @@
-"use server";
+'use server';
 
-import type { Post } from "@prisma/client";
-import { revalidatePath } from "next/cache";
-import { redirect } from "next/navigation";
-import { z } from "zod";
-import { auth } from "@/auth";
-import { db } from "@/db";
-import paths from "@/app/(auth)/path";
+import type { Post } from '@prisma/client';
+import { revalidatePath } from 'next/cache';
+import { redirect } from 'next/navigation';
+import { z } from 'zod';
+import { auth } from '@/auth';
+import { db } from '@/db';
+import paths from '@/app/(auth)/path';
 
 const createPostSchema = z.object({
   title: z.string().min(3),
@@ -24,11 +24,11 @@ interface CreatePostFormState {
 export async function createPost(
   slug: string,
   formState: CreatePostFormState,
-  formData: FormData
+  formData: FormData,
 ): Promise<CreatePostFormState> {
   const result = createPostSchema.safeParse({
-    title: formData.get("title"),
-    content: formData.get("content"),
+    title: formData.get('title'),
+    content: formData.get('content'),
   });
 
   if (!result.success) {
@@ -41,7 +41,7 @@ export async function createPost(
   if (!session || !session.user) {
     return {
       errors: {
-        _form: ["You must be signed in to do this"],
+        _form: ['You must be signed in to do this'],
       },
     };
   }
@@ -53,7 +53,7 @@ export async function createPost(
   if (!topic) {
     return {
       errors: {
-        _form: ["Cannot find topic"],
+        _form: ['Cannot find topic'],
       },
     };
   }
@@ -78,12 +78,12 @@ export async function createPost(
     } else {
       return {
         errors: {
-          _form: ["Failed to create post"],
+          _form: ['Failed to create post'],
         },
       };
     }
   }
 
-  revalidatePath(paths.topicShowPath(slug))
-  redirect(paths.postShowPath(slug, post.id))
+  revalidatePath(paths.topicShowPath(slug));
+  redirect(paths.postShowPath(slug, post.id));
 }
